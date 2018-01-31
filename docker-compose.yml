@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+ maildev:
+   container_name: maildev
+   image: djfarrelly/maildev:0.13.4
+   command:
+       - 'bin/maildev'
+       - '--smtp'
+       - '25'
+   ports:
+       - '1080:1080'
+       - '25:25'
+ dockertraining.web:
+   image: dockertraining.web
+   build:
+     context: .
+     dockerfile: DockerTraining.Web\Dockerfile
+   ports:
+     - '81:80'
+   environment:
+     - dockerMailHost=maildev
