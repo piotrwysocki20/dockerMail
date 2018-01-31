@@ -15,7 +15,7 @@ services:
    image: dockertraining.web
    build:
      context: .
-     dockerfile: DockerTraining.Web\Dockerfile
+     dockerfile: DockerTraining.Web/Dockerfile
    ports:
      - '81:80'
    environment:
