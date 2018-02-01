@@ -4,6 +4,7 @@ EXPOSE 80
 
 FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR /src
+COPY *.sln ./
 COPY DockerTraining.Web/DockerTraining.Web.csproj DockerTraining.Web/
 RUN dotnet restore
 COPY . .
